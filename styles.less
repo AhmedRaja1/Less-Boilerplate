@@ -1,0 +1,64 @@
+@background-color: yellow;
+@font-family: Tahoma;
+@primary-color: #3b5998;
+@secondary-color: #20b2aa;
+@line-height: 1em + 1em; //Artihmetic using Operations
+
+body {
+  font-family: @font-family;
+  line-height: @line-height;
+  background: @background-color;
+}
+
+// Variables
+.primary-text {
+  color: @primary-color;
+}
+
+// Extensions
+.primary-btn:extend(.primary-btn) {
+  background: @primary-color;
+}
+
+h1 {
+  .bordered;
+  .border-radius(30px); // Mixin Called
+}
+.btn {
+  padding: 10px;
+}
+
+// Simple Mixins / Functions
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+// Mixins with Parameters (Functions)
+.border-radius(@radius) {
+  border-radius: @radius;
+}
+
+// Nesting
+ul {
+  padding: 20px;
+
+  li {
+    padding: 10px;
+  }
+
+  a {
+    padding: 30px;
+  }
+}
+
+// Math Function
+// sqrt(25px)
+
+// Logical Function
+@some: foo;
+
+div {
+  margin: if((2 > 1), 0, 3px);
+  color: if((iscolor(@some)), @some, black);
+}
